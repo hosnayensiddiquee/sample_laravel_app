@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.pages.registration');
-});
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'UserRegistrationController@index');
+Route::post('/store', 'UserRegistrationController@store')->name('user.save');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
